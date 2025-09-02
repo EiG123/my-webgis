@@ -1,19 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>My WebGIS</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced WebGIS Application</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+        crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>My WebGIS</h2>
-  <input type="file" id="csvFile" accept=".csv" />
-  <div id="map"></div>
+  <div class="container">
+    <div class="header">
+      <h1>🗺️ Enhanced WebGIS</h1>
+      <p>Interactive Geographic Information System with CSV Data Visualization</p>
+    </div>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <div class="controls">
+      <div class="file-input-container">
+        <div class="file-input-wrapper">
+          <input type="file" id="csvFile" class="file-input" accept=".csv" />
+          <button class="file-input-button" onclick="document.getElementById('csvFile').click()">
+            📁 Upload CSV File
+          </button>
+        </div>
+        <div class="file-info" id="fileInfo">
+          Select a CSV file with latitude and longitude columns
+        </div>
+      </div>
+    </div>
+
+    <div class="status-bar" id="statusBar"></div>
+
+    <div class="map-container">
+      <div id="map"></div>
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div>Processing data...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+          crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="script.js"></script>
 </body>
